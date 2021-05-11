@@ -97,8 +97,8 @@ fi
 cd $DIR
 
 # build a local model database
-#if [[ $MODELS ]]
-#then
+# if [[ $MODELS ]]
+# then
 # Temporal directory for the repository
   TMP_DIR=`mktemp -d`
   cd $TMP_DIR
@@ -144,22 +144,22 @@ mkdir -p $DIR/http/client/assets
 ./get_local_models.py $DIR/http/client/assets
 ./webify_models_v2.py $DIR/http/client/assets
 
-#else
+# else
 #  mkdir -p $DIR/http/client/assets
 #  echo "Not cloning the model repo"
-#fi
+# fi
 
-if [[ $THUMBNAIL ]]
-then
-  echo "Generating a thumbnail for each model. Make sure gazebo is not running"
-  ./tools/gzthumbnails.sh
-fi
+# if [[ $THUMBNAIL ]]
+# then
+echo "Generating a thumbnail for each model. Make sure gazebo is not running"
+./tools/gzthumbnails.sh
+# fi
 
 # build a local model database
-if [[ $COARSE ]]
-then
-  ./coarse_meshes.sh 50 http/client/assets/
-fi
+# if [[ $COARSE ]]
+#then
+./coarse_meshes.sh 50 http/client/assets/
+# fi
 
 echo "Done"
 
